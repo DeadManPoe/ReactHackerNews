@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {configureStore} from './src/store/store'
-import {StoriesManager} from './src/smart_components/storiesManager'
-let store = configureStore();
+import {StoriesManager} from './src/container_components/storiesManager'
+export const store = configureStore();
 
 class RootComponent extends React.Component{
     render(){
