@@ -30,10 +30,14 @@ export class StoriesList extends React.Component{
             <button onClick={()=>{
                 this.props.onFetch();
             }}>fetch realt</button>
-            <div className="spinnerOuter">
-                <div className="spinnerInner_hor"></div>
-                <div className="spinnerInner_ver"></div>
+            <div className="spinningMsg">
+                <div className="spinnerOuter">
+                    <div className="spinnerInner_hor"></div>
+                    <div className="spinnerInner_ver"></div>
+                </div>
+                <span>Loading</span>
             </div>
+
             <ul>{listItems}</ul>
         </div>;
     }
