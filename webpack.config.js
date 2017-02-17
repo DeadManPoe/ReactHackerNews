@@ -4,6 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: './main.js',
     output: { path: __dirname, filename: 'bundle.js' },
+    devtool : 'source-maps',
     module: {
         loaders: [
             {
@@ -14,7 +15,8 @@ module.exports = {
                     plugins: ['transform-decorators-legacy' ],
                     presets: ['es2015', 'react']
                 }
-            }
+            },
+            { test: /\.css$/, loader: "style-loader!css-loader" }
         ]
     },
 };
