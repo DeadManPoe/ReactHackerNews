@@ -10,7 +10,7 @@
     border: 3px solid blue;
     border-radius: 50px;
     position: relative;
-    animation: rotate_animation 1s linear 1s infinite;
+    animation: rotate_animation 1s linear 0s infinite;
 }
 .spinnerInner_hor {
     background-color: white;

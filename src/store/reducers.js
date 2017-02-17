@@ -11,7 +11,7 @@ export function storiesReducer(state=State.stories ,action){
             return Object.assign({},state,{pending: true})
         }
         case "PROVIDE_STORIES": {
-            return {stories: state.stories.concat(action.payload), pending:false, errored:false}
+            return {stories: action.payload, pending:false, errored:false}
         }
         default : {
             return state;

@@ -3,13 +3,13 @@ import React from 'react'
 export class StoriesList extends React.Component{
 
     computePending(){
-        if(this.props.pending){
+        if(this.props.pendingStories){
             return {
-                display : "block"
+                display : "flex"
             }
         }
         return {
-            display : "none"
+            display : "none",
         }
     }
     computeUrlHost(url){
@@ -22,15 +22,15 @@ export class StoriesList extends React.Component{
     }
 
     render(){
+        console.log(this.props.stories);
         let listItems = this.props.stories.map(item =>
             <li key={item.id}><a href={item.url}>{item.title}</a><a href={this.computeUrlHost(item.url)}>({this.computeUrlHost(item.url)})</a></li>);
 
         return <div>
-            <p style={this.computePending()}>Loading stories ...</p>
             <button onClick={()=>{
                 this.props.onFetch();
             }}>fetch realt</button>
-            <div className="spinningMsg">
+            <div className="spinningMsg" style={this.computePending()}>
                 <div className="spinnerOuter">
                     <div className="spinnerInner_hor"></div>
                     <div className="spinnerInner_ver"></div>
