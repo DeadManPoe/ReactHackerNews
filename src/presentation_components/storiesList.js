@@ -1,4 +1,5 @@
 import React from 'react'
+require("../stylesheets/index.css");
 
 export class StoriesList extends React.Component{
 
