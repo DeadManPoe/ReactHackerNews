@@ -5,8 +5,9 @@ import {store} from "../../main";
 import axios from "axios";
 import {configs} from "../../configs"
 import {StoriesActionCreator} from "../store/storiesActionCreator"
-const loadStories = ()=>{
-    axios.get(configs.storiesEndpoint).then((result)=>{
+const loadStories = (type)=>{
+    let refEndpoint = type==='top' ? configs.storiesEndpoint : configs.newStoriesEndpoit;
+    axios.get(refEndpoint).then((result)=>{
         let pushingArray = [];
         for(let i=0; i<30; i++){
             pushingArray.push(axios.get(configs.storyEndpoint.replace("@@@",result.data[i])));

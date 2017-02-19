@@ -1,8 +1,8 @@
 export const StoriesActionCreator = {
-    loadStories : ()=>{
+    loadStories : (type)=>{
         return {
             type : "LOAD_STORIES",
-            payload : null
+            payload : type
         }
     },
     likeStory : (storyId) => {

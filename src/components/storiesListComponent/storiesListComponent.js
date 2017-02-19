@@ -3,9 +3,7 @@ import "./storiesListComponent.css";
 
 export class StoriesList extends React.Component {
 
-    componentDidMount(){
-        this.props.onFetch();
-    }
+
     computePending() {
         if (this.props.pendingStories) {
             return {
