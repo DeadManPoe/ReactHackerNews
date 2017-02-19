@@ -1,45 +1,58 @@
-import React from 'react'
+import React from "react";
 import "./storiesListComponent.css";
 
-export class StoriesList extends React.Component{
+export class StoriesList extends React.Component {
 
-    computePending(){
-        if(this.props.pendingStories){
+    componentDidMount(){
+        this.props.onFetch();
+    }
+    computePending() {
+        if (this.props.pendingStories) {
             return {
-                display : "flex"
+                display: "flex"
             }
         }
         return {
-            display : "none",
+            display: "none",
         }
     }
-    computeUrlHost(url){
+
+    computeUrlHost(url) {
         //noinspection JSUnresolvedFunction
-        if(!url){
+        if (!url) {
             return ""
         }
         let url_ = new URL(url);
         return url_.hostname;
     }
 
-    render(){
-        console.log(this.props.stories);
+    render() {
+        /* */////
         let listItems = this.props.stories.map(item =>
-            <li key={item.id}><a href={item.url}>{item.title}</a><a href={this.computeUrlHost(item.url)}>({this.computeUrlHost(item.url)})</a></li>);
+            <li styleName="storyItem" key={item.id}>
+                <span styleName="storyItem__thumbsup">👍</span>
+                <a styleName="storyItem__title" href={item.url}>{item.title}</a>
+                <a styleName="storyItem__hostname" href={this.computeUrlHost(item.url)}>({this.computeUrlHost(item.url)})</a>
+            </li>);
 
         return <div>
-            <button onClick={()=>{
+            <button onClick={() => {
                 this.props.onFetch();
-            }}>fetch realt</button>
-            <div styleName="spinningMsg" style={this.computePending()}>
-                <div styleName="spinnerOuter">
-                    <div styleName="spinnerInner_hor"></div>
-                    <div styleName="spinnerInner_ver"></div>
+            }}>fetch realt
+            </button>
+            <div styleName="spinningContainer">
+                <div styleName="spinningMsg" style={this.computePending()}>
+                    <div styleName="spinnerOuter">
+                        <div styleName="spinnerInner_hor"></div>
+                        <div styleName="spinnerInner_ver"></div>
+                    </div>
+                    <span>Loading</span>
                 </div>
-                <span>Loading</span>
             </div>
 
-            <ul>{listItems}</ul>
+            <div styleName="storyItemsContainer">
+                <ul>{listItems}</ul>
+            </div>
         </div>;
     }
 }

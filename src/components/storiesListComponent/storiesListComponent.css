@@ -4,6 +4,13 @@
     50%  {transform: rotate(180deg)}
     100% {transform: rotate(360deg)}
 }
+.spinningContainer {
+    top: calc(50% - 33px);
+    left: calc(50% - 70px);
+    position: absolute;
+    background-color: white;
+    padding: 15px
+}
 .spinnerOuter {
     width: 30px;
     height: 30px;
@@ -30,9 +37,33 @@
 }
 .spinningMsg {
     display: flex;
-    margin-top: 15px;
     align-items: center;
 }
 .spinningMsg span {
     margin-left: 15px;
+}
+.storyItem {
+    margin-bottom: 10px;
+}
+.storyItem__thumbsup{
+    font-size: .8rem;
+}
+.storyItem__title, .storyItem__hostname{
+    font-size:.9rem;
+    margin-left: 10px;
+    color: #333;
+    text-decoration: none;
+}
+.storyItem__hostname{
+    opacity: .6;
+    font-size: .8rem;
+}
+.storyItem__title:hover,.storyItem__hostname:hover{
+    text-decoration: underline;
+}
+.storyItemsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbfff6;
 }
