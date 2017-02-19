@@ -11,7 +11,8 @@ module.exports = {
                 test: /\.css$/,
                 loaders : [
                     'style-loader',
-                    'css-loader?importLoader=1&modules&localIdentName=[name]__[local]--[hash:base64:5]'
+                    'css-loader?importLoader=1&modules&localIdentName=[name]__[local]',
+                    'postcss-loader'
                 ]
             },
             {
@@ -22,7 +23,7 @@ module.exports = {
                     plugins: ['transform-decorators-legacy',  [
                         'react-css-modules',
                         {
-                            "generateScopedName": "[name]___[local]"
+                            "generateScopedName": "[name]__[local]"
                         }
                     ]],
                     presets: ['es2015', 'react']
