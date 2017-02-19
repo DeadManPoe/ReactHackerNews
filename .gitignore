@@ -138,3 +138,6 @@ fabric.properties
 # *.ipr
 
 # End of https://www.gitignore.io/api/macos,webstorm,node
+
+bundle.js
+bundle.map.js

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StoriesList} from '../presentation_components/storiesList'
+import {StoriesList} from '../presentation_components/storiesListComponent/storiesListComponent'
 import {StoriesActionCreator} from '../store/storiesActionCreator'
 import {connect} from 'react-redux';
 

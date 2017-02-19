@@ -1,5 +1,5 @@
 import React from 'react'
-require("../stylesheets/index.css");
+import "./storiesListComponent.css";
 
 export class StoriesList extends React.Component{
 
@@ -31,10 +31,10 @@ export class StoriesList extends React.Component{
             <button onClick={()=>{
                 this.props.onFetch();
             }}>fetch realt</button>
-            <div className="spinningMsg" style={this.computePending()}>
-                <div className="spinnerOuter">
-                    <div className="spinnerInner_hor"></div>
-                    <div className="spinnerInner_ver"></div>
+            <div styleName="spinningMsg" style={this.computePending()}>
+                <div styleName="spinnerOuter">
+                    <div styleName="spinnerInner_hor"></div>
+                    <div styleName="spinnerInner_ver"></div>
                 </div>
                 <span>Loading</span>
             </div>
