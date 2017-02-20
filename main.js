@@ -12,6 +12,9 @@ class RootComponent extends React.Component{
             <Router history={browserHistory}>
                 <Route path="/" component={StoriesManager} storiesType="top"/>
                 <Route path="/new" component={StoriesManager} storiesType="new"/>
+                <Route path="/ask" component={StoriesManager} storiesType="ask"/>
+                <Route path="/jobs" component={StoriesManager} storiesType="jobs"/>
+                <Route path="/shows" component={StoriesManager} storiesType="shows"/>
             </Router>
         </Provider>);
     }

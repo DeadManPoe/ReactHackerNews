@@ -30,6 +30,6 @@
     "style-loader": "^0.13.1"
   },
   "scripts": {
-    "serve": "./node_modules/.bin/webpack-dev-server"
+    "serve": "./node_modules/.bin/webpack-dev-server --inline --content-base . --history-api-fallback"
   }
 }

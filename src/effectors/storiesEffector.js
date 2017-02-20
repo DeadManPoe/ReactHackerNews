@@ -6,10 +6,38 @@ import axios from "axios";
 import {configs} from "../../configs"
 import {StoriesActionCreator} from "../store/storiesActionCreator"
 const loadStories = (type)=>{
-    let refEndpoint = type==='top' ? configs.storiesEndpoint : configs.newStoriesEndpoit;
+    let refEndpoint;
+    switch(type){
+        case 'top' : {
+            refEndpoint = configs.storiesEndpoint;
+            break;
+        }
+        case 'new' : {
+            refEndpoint = configs.newStoriesEndpoint;
+            break;
+        }
+        case 'ask' : {
+            refEndpoint = configs.askStoriesEndpoint;
+            break;
+        }
+        case 'jobs' : {
+            refEndpoint = configs.jobsStoriesEndpoint;
+            break;
+        }
+        case 'shows' : {
+            refEndpoint = configs.showStoriesEndpoint;
+            break;
+        }
+        default : {
+            refEndpoint = configs.storiesEndpoint;
+            break;
+        }
+
+    }
     axios.get(refEndpoint).then((result)=>{
         let pushingArray = [];
-        for(let i=0; i<30; i++){
+        let upperLimit = Math.min(result.data.length, 30);
+        for(let i=0; i<upperLimit; i++){
             pushingArray.push(axios.get(configs.storyEndpoint.replace("@@@",result.data[i])));
         }
         Promise.all(pushingArray).then((results)=>{

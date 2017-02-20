@@ -26,12 +26,19 @@ export class StoriesList extends React.Component {
 
     render() {
         /* */////
-        let listItems = this.props.stories.map(item =>
-            <li styleName="storyItem" key={item.id}>
-                <span styleName="storyItem__thumbsup">👍</span>
-                <a styleName="storyItem__title" href={item.url}>{item.title}</a>
-                <a styleName="storyItem__hostname" href={this.computeUrlHost(item.url)}>({this.computeUrlHost(item.url)})</a>
-            </li>);
+        let listItems = this.props.stories.map((item) =>{
+          if(item.url){
+              return <li styleName="storyItem" key={item.id}>
+                  <span styleName="storyItem__thumbsup">👍</span>
+                  <a styleName="storyItem__title" href={item.url}>{item.title}</a>
+                  <a styleName="storyItem__hostname" href={this.computeUrlHost(item.url)}>({this.computeUrlHost(item.url)})</a>
+              </li>
+          }
+           return <li styleName="storyItem" key={item.id}>
+                  <span styleName="storyItem__thumbsup">👍</span>
+                  <a styleName="storyItem__title" href={item.url}>{item.title}</a>
+              </li>
+        });
 
         return <div>
             <button onClick={() => {
